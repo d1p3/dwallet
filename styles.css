@@ -12,6 +12,7 @@
       margin: 0 auto;
       position: relative;
     }
+
     h5{
         font-family: var(--Big-font) ;
         text-decoration-color: dimgray;
