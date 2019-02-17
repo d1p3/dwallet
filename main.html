@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payer</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<script src="./jsQR.js"></script>
+	<script src="./jquery.qrcode.min.js"></script>
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<script>
+	$(document).ready(function() {
+		$("#p_button").click(function () {
+			$("#p_button").hide();
+			$("#r_button").show();
+
+			return false;
+		});
+		$("#r_button").click(function () {
+			$("#r_button").hide();
+			$("#p_button").show();
+			return false;
+		});
+	});
+</script>
+<!--
+
+
+
+
+
+
+-->
+<body>
+
+<div class="container-fluid">
+	<div class="row text-center">
+		<div class="col">
+			<div id="a" class="col">
+			<a id="r_button" href="#a" style="display: none" ><img class="image" id="r_image" id="left" src="left.png"></a>
+			<a id="p_button" href="#a"><img class="image" id="p_image" id="right" src="right.png"></a>
+			</div>
+
+			<div id="pay-details" class="col p-5">
+				<h2>To: Paras</h2>
+				<h2>Amount: $42</h2>
+				<button class="btn btn-lg bg-success text-white text-bold p-2">$$$$</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--
+
+	<div id="qr-show"></div>
+  <script>
+		$('#qr-show').qrcode("MY QR CODE");
+	</script>
+
+	<div id="loadingMessage" style="display:none;"></div>
+  <canvas id="canvas" style="display:none;" hidden></canvas>
+  <div id="output" hidden>
+    <div id="outputMessage">Please scan to pay!</div>
+    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+  </div>
+  <script>
+    var video = document.createElement("video");
+    var canvasElement = document.getElementById("canvas");
+    var canvas = canvasElement.getContext("2d");
+    var loadingMessage = document.getElementById("loadingMessage");
+    var outputContainer = document.getElementById("output");
+    var outputMessage = document.getElementById("outputMessage");
+    var outputData = document.getElementById("outputData");
+		var mainData = "";
+
+		function drawLine(begin, end, color) {
+      canvas.beginPath();
+      canvas.moveTo(begin.x, begin.y);
+      canvas.lineTo(end.x, end.y);
+      canvas.lineWidth = 4;
+      canvas.strokeStyle = color;
+      canvas.stroke();
+    }
+
+    // Use facingMode: environment to attemt to get the front camera on phones
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.play();
+      requestAnimationFrame(tick);
+    });
+
+    function tick() {
+      loadingMessage.innerText = ""
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        loadingMessage.hidden = true;
+        canvasElement.hidden = false;
+        outputContainer.hidden = false;
+
+        canvasElement.height = video.videoHeight;
+        canvasElement.width = video.videoWidth;
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        var code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert",
+        });
+        if (code) {
+          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+          outputMessage.hidden = true;
+          outputData.parentElement.hidden = false;
+          outputData.innerText = code.data;
+					mainData = code;
+        } else {
+          outputMessage.hidden = false;
+          outputData.parentElement.hidden = true;
+        }
+      }
+			if (mainData=="") requestAnimationFrame(tick);
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+var userInfo = function() {
+	return {
+		balance:0,
+		userId: "",
+		credit: function(x) {this.balance = this.balance + x},
+		debit: function(x) {this.balance = this.balance - x},
+		getBalance: function(x) {console.log(this.balance)},
+	}
+}
+var Paras = new userInfo();
+Paras.userID="HELLO";
+Paras.credit(10);
+Paras.debit(20);
+
+
+</script>
+-->
+</body>
+</html>

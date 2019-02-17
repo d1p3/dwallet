@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Lalezar');
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+:root{
+    --Big-font: Lalezar;
+    --Small-font: Righteous;
+    }
+
+    body {
+      font-family: var(--Big-font);
+      color: #333;
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+    h5{
+        font-family: var(--Big-font) ;
+        text-decoration-color: dimgray;
+    }
+    h2{
+        font-family: var(--Big-font);
+    }
+    .input-group{
+        font-family: var(--Small-font);
+    }
+    .image{
+      width: 200px;
+        height: 200px;
+    }
+    #githubLink {
+      position: absolute;
+      right: 0;
+      top: 12px;
+      color: #2D99FF;
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 40px;
+    }
+
+    #loadingMessage {
+      text-align: center;
+      padding: 40px;
+      background-color: #eee;
+    }
+
+    #canvas {
+      width: 100%;
+    }
+
+    #output {
+      margin-top: 20px;
+      background: #eee;
+      padding: 10px;
+      padding-bottom: 0;
+    }
+
+    #output div {
+      padding-bottom: 10px;
+      word-wrap: break-word;
+    }
+
+    #noQRFound {
+      text-align: center;
+    }
